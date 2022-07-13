@@ -3,6 +3,8 @@ import "./App.css";
 import Greeting from "./components/Greeting";
 import Counter from "./components/Counter";
 import Pokemon from "./components/Pokemon";
+import ClassComponent from "./components/ClassComponent";
+import PropComponent from "./components/PropComponent";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         >
           Learn React
         </a>
+        <ClassComponent />
+        <PropComponent />
         <Pokemon pokemon="pikachu" />
         <Greeting name="Sam" age="29" />
         <Counter />
