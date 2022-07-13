@@ -1,11 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Greeting from "./components/Greeting";
+import Counter from "./components/Counter";
+import Pokemon from "./components/Pokemon";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p>Hello</p>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,6 +21,9 @@ function App() {
         >
           Learn React
         </a>
+        <Pokemon pokemon="pikachu" />
+        <Greeting name="Sam" age="29" />
+        <Counter />
       </header>
     </div>
   );
