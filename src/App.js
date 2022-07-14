@@ -5,8 +5,19 @@ import Counter from "./components/Counter";
 import Pokemon from "./components/Pokemon";
 import ClassComponent from "./components/ClassComponent";
 import PropComponent from "./components/PropComponent";
+import Talker from "./components/Talker";
+import ShoppingList from "./components/ShoppingList";
+import ClockComponent from "./components/ClockStuff/ClockComponent";
 
 function App() {
+  function showMeSomething(input) {
+    alert(input);
+  }
+
+  function hover() {
+    alert("Hovered");
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,8 +34,25 @@ function App() {
         >
           Learn React
         </a>
+
+        <ClockComponent />
+
         <ClassComponent />
-        <PropComponent />
+        <Talker />
+
+        {/* Child of App */}
+        <PropComponent
+          newDate={{ favouriteColour: "Silver" }}
+          name="Sam"
+          age={90}
+          propFunc={showMeSomething}
+        />
+
+        {/* Wrap component in div to add event listener and handler */}
+        <div onMouseEnter={() => hover()}>
+          <ShoppingList />
+        </div>
+
         <Pokemon pokemon="pikachu" />
         <Greeting name="Sam" age="29" />
         <Counter />

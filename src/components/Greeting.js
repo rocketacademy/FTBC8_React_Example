@@ -1,5 +1,5 @@
 import React from "react";
-import Clock from "./Clock";
+import Clock from "./ClockStuff/Clock";
 
 export default class Greeting extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Greeting extends React.Component {
   render() {
     return (
       <div>
-        {this.state.show ? <Clock /> : null}
+        {this.state.show ? <Clock timezone={"America/Los_Angeles"} /> : null}
         <button onClick={() => this.setState({ show: !this.state.show })}>
           Toggle Clock
         </button>
