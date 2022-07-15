@@ -1,52 +1,18 @@
 import React from "react";
 
 export default class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      count: 0,
-      name: "John",
-    };
-
-    this.decrementCount = this.decrementCount.bind(this);
-  }
-
-  // arrow functions automatically bind to the class
-  incrementCount = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
-
-  // function delcaration, this is not bound to the class.
-  decrementCount() {
-    this.setState({
-      count: this.state.count - 1,
-    });
-  }
-
-  changeName = (e) => {
-    this.setState({
-      name: e.target.value,
-    });
-  };
-
   render() {
     return (
       <div>
         <h6>Welcome</h6>
-        <p>{this.state.count}</p>
-        <button onClick={this.incrementCount}>Increment Count</button>
-        <button onClick={this.decrementCount}>Decrement Count</button>
-
-        <input
-          type="text"
-          value={this.state.name}
-          placeholder="Insert name here"
-          onChange={(e) => this.changeName(e)}
-        />
-        <p>{this.state.name}</p>
+        <button onClick={() => this.props.plus(this.props.id)}>
+          Increment Count
+        </button>
+        <button onClick={() => this.props.minus(this.props.id)}>
+          Decrement Count
+        </button>
+        <p>{this.props.name}</p>
+        <p>{this.props.count}</p>
       </div>
     );
   }
