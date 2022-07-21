@@ -9,6 +9,9 @@ import ShoppingList from "./components/ShoppingList";
 import ClockComponent from "./components/ClockStuff/ClockComponent";
 import React from "react";
 import Leaderboard from "./components/Leaderboard";
+import Form from "./components/Form";
+import Calculator from "./components/StateLifting/Calculator";
+import StyleChildren from "./components/StyleChildren";
 
 export default class App extends React.Component {
   showMeSomething(input) {
@@ -21,17 +24,18 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(React.Component);
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p onClick={this.hover}>Hello</p>
+          {/* <p onClick={this.hover}>Hello</p>
 
           <br />
 
           <p onMouseEnter={(e) => this.hover(e)}>
             Edit <code>src/App.js</code> and save to reload.
-          </p>
+          </p> */}
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -40,8 +44,15 @@ export default class App extends React.Component {
           >
             Learn React
           </a>
+          {/* 
+          <Calculator hello={"Hello"} />
 
-          <ClockComponent />
+          <StyleChildren color="black">
+            <p>Hello World </p>
+            <h1>Dog</h1>
+          </StyleChildren> */}
+
+          {/* <ClockComponent />
 
           <ClassComponent />
           <Talker />
@@ -51,15 +62,16 @@ export default class App extends React.Component {
             name="Sam"
             age={90}
             propFunc={this.showMeSomething}
-          />
+          /> */}
 
           {/* Wrap component in div to add event listener and handler */}
-          <div onMouseEnter={() => this.hover()}></div>
+          {/* <div onMouseEnter={() => this.hover()}></div>
 
           <Pokemon pokemon="pikachu" />
           <Greeting name="Sam" age="29" />
           <ShoppingList />
-          <Leaderboard />
+          <Leaderboard /> */}
+          <Form />
         </header>
       </div>
     );

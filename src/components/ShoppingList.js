@@ -10,6 +10,10 @@ export default class ShoppingList extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Updated!");
+  }
+
   handleSubmit = (e) => {
     console.log(e);
     e.preventDefault();
