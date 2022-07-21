@@ -58,9 +58,11 @@ for (let i = 0; i < 1000; i++) {
 // Compile tally of how many of each fruit is in store
 const tally = {};
 for (const fruit of fruitsInStore) {
+  // fruit refers to the array element = fruitsInStore - array
   console.log(fruit);
   console.log(tally);
   if (fruit in tally) {
+    // fruit in tally, refers to the tally object, and if the fruit is a key
     tally[fruit] += 1;
   } else {
     tally[fruit] = 1;
