@@ -10,8 +10,12 @@ import ClockComponent from "./components/ClockStuff/ClockComponent";
 import React from "react";
 import Leaderboard from "./components/Leaderboard";
 import Form from "./components/Form";
-import Calculator from "./components/StateLifting/Calculator";
-import StyleChildren from "./components/StyleChildren";
+
+import Wheel from "@uiw/react-color-wheel";
+import { products } from "./data.js";
+import info from "./info.json";
+
+import { useState } from "react";
 
 export default class App extends React.Component {
   showMeSomething(input) {
@@ -24,6 +28,9 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(info.info[0]);
+
+    console.log(products);
     console.log(React.Component);
     return (
       <div className="App">
@@ -44,6 +51,7 @@ export default class App extends React.Component {
           >
             Learn React
           </a>
+
           {/* 
           <Calculator hello={"Hello"} />
 

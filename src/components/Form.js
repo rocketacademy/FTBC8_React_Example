@@ -10,6 +10,7 @@ export default class Login extends React.Component {
       username: "",
       population: 0,
       country: null,
+      currentUser: {},
     };
   }
 
@@ -30,8 +31,39 @@ export default class Login extends React.Component {
       );
     } else {
       console.log("DONE");
-      let dataString = `${this.state.username}, ${this.state.email}, ${this.state.password}`;
-      localStorage.setItem("data", dataString);
+
+      let dataOBJ = {
+        users: [
+          {
+            name: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+          },
+        ],
+      };
+
+      let storageArray = JSON.parse(localStorage.getItem("data")) || [];
+
+      console.log(storageArray);
+
+      if (storageArray.length == 0) {
+        console.log("HERE");
+        localStorage.setItem("data", JSON.stringify(dataOBJ));
+      } else {
+        let data = {
+          name: this.state.username,
+          email: this.state.email,
+          password: this.state.password,
+        };
+
+        console.log(storageArray.users);
+        storageArray.users.push(data);
+        localStorage.setItem("data", JSON.stringify(storageArray));
+      }
+
+      // console.log(storageArray);
+
+      // let dataString = `${this.state.username}, ${this.state.email}, ${this.state.password}`;
     }
   };
 
@@ -52,6 +84,10 @@ export default class Login extends React.Component {
           population: realData[0].population,
         });
       });
+
+    console.log(localStorage.getItem("data"));
+    let data = JSON.parse(localStorage.getItem("data"));
+    this.setState({ currentUser: data });
   }
 
   render() {
@@ -100,6 +136,12 @@ export default class Login extends React.Component {
           <br />
           <input type="submit" value={this.props.login ? "Login" : "Signup"} />
         </form>
+
+        {this.state.currentUser && this.state.currentUser !== undefined ? (
+          <div>
+            <p>{this.state.currentUser.password}</p>
+          </div>
+        ) : null}
 
         {this.state.country !== null ? (
           <div>
